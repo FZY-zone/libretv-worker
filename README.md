@@ -9,7 +9,6 @@
 > 获取代码用下面任一方式：
 > - **方式一（最简单）**：打开 `worker.js` 页面 → 点右上角 **下载（⬇）图标** 保存文件 → 用记事本/编辑器打开它 → `Ctrl+A`、`Ctrl+C` 全选复制。
 > - **方式二（Raw）**：点 **Raw** 按钮 → 浏览器打开原始代码 → `Ctrl+A`、`Ctrl+C`（或右键“另存为”）。
-> - 也可以在本仓库右侧 **Releases** 下载打包好的 `worker.js`。
 
 > 本项目基于 [LibreTV](https://github.com/LibreSpark/LibreTV)（Next.js 重构版，**AGPL-3.0**），
 > 原作者 LibreSpark。本仓库只是将其打包为“单文件可粘贴”形态，协议仍为 AGPL-3.0。
