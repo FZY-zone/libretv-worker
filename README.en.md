@@ -12,7 +12,6 @@ Copy the entire `worker.js`, paste it into the Cloudflare Worker online editor, 
 > Get the code in either way:
 > - **Easiest**: open the `worker.js` page → click the **download (⬇) icon** (top right) to save it → open in any text editor → `Ctrl+A`, `Ctrl+C`.
 > - **Raw**: click the **Raw** button → the raw code opens in the browser → `Ctrl+A`, `Ctrl+C` (or right-click "Save as").
-> - You can also download the packaged `worker.js` from the **Releases** section on the right.
 
 ## Size
 
