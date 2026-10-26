@@ -15,7 +15,7 @@ Copy the entire `worker.js`, paste it into the Cloudflare Worker online editor, 
 
 ## Size
 
-- Raw `worker.js`: ~8.7 MB, **gzip ~2.24 MB**
+- Raw `worker.js`: ~8.66 MB, **gzip ~2.24 MB**
 - Below the Cloudflare **free plan Worker limit of 3 MB (gzip)** — deployable on a free account
 - 61 static assets (JS/CSS/icons, etc.) are inlined, so no external files are needed
 
@@ -31,20 +31,44 @@ Copy the entire `worker.js`, paste it into the Cloudflare Worker online editor, 
 
 > To use your own domain: Workers → your Worker → **Settings → Domains & Routes → Add → Custom Domain**, and pick a domain already in your account.
 
+## Homepage Recommendations (Rankings)
+
+The homepage rankings are configured via the `LZ_API_BASE` environment variable. Set it to the **root URL of a MacCMS (maccms) collection site** (**without a trailing slash**), for example:
+
+```
+http://example.com:5566
+```
+
+Once saved, the homepage shows six ranking tabs, all fetched live from that site (the variable takes effect immediately, no redeploy needed):
+
+| Tab | Content |
+|---|---|
+| Latest | Updates across the whole site in the last 24 hours |
+| Action Movies | Action movie category |
+| Chinese TV | Chinese TV series category |
+| Western TV | European/American TV series category |
+| Chinese Anime | Chinese animation category |
+| Chinese Variety | Mainland variety shows category |
+
+- Ranking data is cached for 1 hour; if it fails to load, the collection site may be rate-limiting and will recover shortly.
+- Clicking a card searches by title, so it's recommended to also add the same site as a VOD source (see `DEFAULT_SOURCES` below); otherwise the card may return no results.
+- The category IDs used by the rankings are built into the code; if the new collection site uses different category IDs, the category mapping in the code must be adjusted.
+- If `LZ_API_BASE` is unset, no recommendation area is shown and search is unaffected.
+
 ## Optional: Environment variables (under "Settings → Variables and Secrets")
 
 | Variable | Type | Description |
 |---|---|---|
 | `PASSWORD` | **Secret** | Access password; if unset, the site is open without a password |
 | `DEFAULT_SOURCES` | **Text** | Preset VOD sources; new visitors get them automatically with no manual setup |
-| `60S_API_BASE` | Text | Homepage trending/recommendation source (unset shows "failed to load recommendations"; search still works) |
+| `LZ_API_BASE` | Text | Homepage recommendation source (root URL of a MacCMS collection site); when set, the homepage shows its rankings, otherwise no recommendations appear |
 | `REQUEST_TIMEOUT` | Text | Upstream request timeout (ms), default 8000 |
 
 `DEFAULT_SOURCES` is a JSON array. The example below shows the **format only; the URL is a placeholder and does not work**:
 
 ```json
 [
-  {"name":"Example Source","url":"https://demo.example.com/api.php/provide/vod/from/demo","isAdult":false}
+  {"name":"Example Source","url":"https://demo.example.com/api.php/provide/vod","isAdult":false}
 ]
 ```
 

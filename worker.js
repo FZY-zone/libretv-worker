@@ -39992,7 +39992,7 @@ See more info here: https://nextjs.org/docs/messages/large-page-data`)), (0, h.h
         __name($, "$");
         function _() {
           let a2 = (0, n.CU)();
-          return (0, d.jsxs)("section", { children: [(0, d.jsx)(t, { title: "\u9996\u9875\u4E0E\u5185\u5BB9\u8FC7\u6EE4" }), (0, d.jsxs)("div", { className: "space-y-3", children: [(0, d.jsx)(u, { label: "\u6210\u4EBA\u5185\u5BB9\u8FC7\u6EE4", description: "\u8FC7\u6EE4\u201C\u4F26\u7406\u7247\u201D\u7B49\u5206\u7C7B\u7684\u7ED3\u679C", checked: a2.yellowFilter, onChange: /* @__PURE__ */ __name((b2) => a2.updateSettings({ yellowFilter: b2 }), "onChange") }), (0, d.jsx)(u, { label: "\u9996\u9875\u63A8\u8350", description: "\u5728\u9996\u9875\u5C55\u793A\u63A8\u8350\u5185\u5BB9", checked: a2.doubanEnabled, onChange: /* @__PURE__ */ __name((b2) => a2.updateSettings({ doubanEnabled: b2 }), "onChange") }), (0, d.jsx)(w, { label: "\u63A8\u8350\u6570\u636E\u6E90", value: a2.recommendSource, onChange: /* @__PURE__ */ __name((b2) => a2.updateSettings({ recommendSource: b2 }), "onChange"), options: [{ value: "douban", label: "\u8C46\u74E3", hint: "\u70ED\u95E8\u7535\u5F71\u4E0E\u5267\u96C6" }, { value: "bangumi", label: "Bangumi", hint: "\u6BCF\u65E5\u65B0\u756A\u653E\u9001\uFF08\u514D key\uFF09" }, { value: "hot-list", label: "\u5F71\u89C6\u699C\u5355", hint: "\u8C46\u74E3\u5468\u699C / \u767E\u5EA6\u70ED\u64AD" }] })] })] });
+          return (0, d.jsxs)("section", { children: [(0, d.jsx)(t, { title: "\u9996\u9875\u4E0E\u5185\u5BB9\u8FC7\u6EE4" }), (0, d.jsxs)("div", { className: "space-y-3", children: [(0, d.jsx)(u, { label: "\u6210\u4EBA\u5185\u5BB9\u8FC7\u6EE4", description: "\u8FC7\u6EE4\u201C\u4F26\u7406\u7247\u201D\u7B49\u5206\u7C7B\u7684\u7ED3\u679C", checked: a2.yellowFilter, onChange: /* @__PURE__ */ __name((b2) => a2.updateSettings({ yellowFilter: b2 }), "onChange") }), (0, d.jsx)(u, { label: "\u9996\u9875\u63A8\u8350", description: "\u5728\u9996\u9875\u5C55\u793A\u63A8\u8350\u5185\u5BB9", checked: a2.doubanEnabled, onChange: /* @__PURE__ */ __name((b2) => a2.updateSettings({ doubanEnabled: b2 }), "onChange") }), (0, d.jsx)(w, { label: "\u63A8\u8350\u6570\u636E\u6E90", value: a2.recommendSource, onChange: /* @__PURE__ */ __name((b2) => a2.updateSettings({ recommendSource: b2 }), "onChange"), options: [{ value: "douban", label: "\u8C46\u74E3", hint: "\u70ED\u95E8\u7535\u5F71\u4E0E\u5267\u96C6" }, { value: "bangumi", label: "Bangumi", hint: "\u6BCF\u65E5\u65B0\u756A\u653E\u9001\uFF08\u514D key\uFF09" }, { value: "hot-list", label: "\u5F71\u89C6\u699C\u5355", hint: "\u91C7\u96C6\u7AD9\u699C\u5355\uFF08LZ_API_BASE\uFF09" }] })] })] });
         }
         __name(_, "_");
         function aa() {
@@ -64429,38 +64429,26 @@ ${b2}`);
           var d = {};
           c2.r(d), c2.d(d, { GET: /* @__PURE__ */ __name(() => F, "GET"), runtime: /* @__PURE__ */ __name(() => E, "runtime") });
           var e = c2(95736), f = c2(9117), g = c2(4044), h = c2(39326), i = c2(32324), j = c2(261), k = c2(54290), l = c2(85328), m = c2(38928), n = c2(46595), o = c2(3421), p = c2(17679), q = c2(41681), r = c2(63446), s = c2(86439), t = c2(34679), u = c2(51356), v = c2(10641), w = c2(50892), x = c2(2192);
-          let y = "https://60s.viki.moe", z = ["douban_movie_weekly", "douban_tv_chinese", "douban_tv_global", "douban_show_chinese", "douban_show_global", "baidu_teleplay"], A = { douban_movie_weekly: "movie", douban_tv_chinese: "tv_chinese", douban_tv_global: "tv_global", douban_show_chinese: "show_chinese", douban_show_global: "show_global" };
+          let z = ["lz_latest", "lz_movie", "lz_guochantv", "lz_oumeitv", "lz_anime", "lz_zongyi"], LZ_BASE = (process.env["LZ_API_BASE"] || "").replace(/\/+$/, ""), LZ_PARAMS = { lz_latest: "?ac=detail&h=24", lz_movie: "?ac=detail&t=6", lz_guochantv: "?ac=detail&t=13", lz_oumeitv: "?ac=detail&t=16", lz_anime: "?ac=detail&t=29", lz_zongyi: "?ac=detail&t=25" };
           function B(a3, b3) {
             if (!Array.isArray(a3)) throw Error(`${b3}\u6570\u636E\u5F02\u5E38`);
             return a3;
           }
           __name(B, "B");
           async function C(a3) {
-            let b3, c3 = (process.env["60S_API_BASE"] || "https://60s.crystelf.top").replace(/\/+$/, "");
-            for (let d2 of c3 === y ? [c3] : [c3, y]) try {
-              let b4 = await (0, x.uL)(`${d2}${a3}`, { timeoutMs: 8e3, headers: { "User-Agent": "LibreTV (+https://github.com/LibreSpark/LibreTV)", Accept: "application/json" } });
-              if (!b4.ok) throw Error(`60s API \u54CD\u5E94\u5F02\u5E38 (${b4.status})`);
-              return await b4.json();
-            } catch (a4) {
-              b3 = a4;
-            }
-            throw b3 instanceof Error ? b3 : Error("60s API \u8BF7\u6C42\u5931\u8D25");
+            if (!LZ_BASE) throw Error("未配置首页推荐采集站，请设置环境变量 LZ_API_BASE");
+            let b4 = await (0, x.uL)(`${LZ_BASE}/api.php/provide/vod/at/json${LZ_PARAMS[a3]}`, { timeoutMs: 8e3, headers: { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/122.0.0.0 Safari/537.36", Accept: "application/json" } });
+            if (!b4.ok) throw Error(`采集站响应异常 (${b4.status})`);
+            return await b4.json();
           }
           __name(C, "C");
           async function D(a3) {
-            let b3, c3 = `hot-list:${a3}`, d2 = (0, x.tv)(c3);
+            let c3 = `hot-list:${a3}`, d2 = (0, x.tv)(c3);
             if (d2) return d2;
-            let e2 = A[a3];
-            if (e2) {
-              let c4 = await C(`/v2/douban/weekly/${e2}`), d3 = a3 !== "douban_movie_weekly";
-              b3 = B(c4.data, "\u8C46\u74E3\u5468\u699C").map((a4) => (function(a5, b4) {
-                let c5 = a5.cover || a5.cover_proxy;
-                if (a5.id && a5.title && c5) return { id: String(a5.id), title: a5.title, cover: c5, rating: a5.rating && a5.rating > 0 ? String(a5.rating) : void 0, isTv: b4 };
-              })(a4, d3)).filter((a4) => a4 !== void 0);
-            } else b3 = B((await C("/v2/baidu/teleplay")).data, "\u767E\u5EA6\u70ED\u64AD\u5267\u699C").map((a4, b4) => (function(a5, b5) {
-              if (a5.title && a5.cover) return { id: `baidu_${b5}`, title: a5.title, cover: a5.cover, isTv: true };
-            })(a4, b4)).filter((a4) => a4 !== void 0);
-            if (b3.length === 0) throw Error("\u699C\u5355\u6570\u636E\u4E3A\u7A7A");
+            let c4 = await C(a3), b3 = B(c4.list, "采集站").map((a5) => {
+              if (a5.vod_id && a5.vod_name && a5.vod_pic) return { id: String(a5.vod_id), title: a5.vod_name, cover: a5.vod_pic, rating: a5.vod_douban_score && a5.vod_douban_score > 0 ? String(a5.vod_douban_score) : a5.vod_score && a5.vod_score > 0 ? String(a5.vod_score) : void 0, isTv: a3 !== "lz_movie" };
+            }).filter((a4) => a4 !== void 0);
+            if (b3.length === 0) throw Error("榜单数据为空");
             return (0, x.lx)(c3, b3, 36e5), b3;
           }
           __name(D, "D");
@@ -78507,7 +78495,7 @@ see more here https://nextjs.org/docs/messages/app-static-to-dynamic-error`), "_
             return f2.data && (h2 = b3 === "all" ? f2.data.days.flatMap((a4) => a4.items) : f2.data.days.find((a4) => a4.weekday === b3)?.items ?? []), (0, d.jsxs)("section", { "aria-label": "\u65B0\u756A\u653E\u9001\u63A8\u8350", children: [(0, d.jsxs)("div", { className: "flex flex-wrap gap-1.5 mb-4", children: [(0, d.jsx)(y, { active: b3 === "all", onClick: /* @__PURE__ */ __name(() => c3("all"), "onClick"), children: "\u5168\u90E8" }), r.map((a4, e2) => (0, d.jsx)(y, { active: b3 === e2 + 1, onClick: /* @__PURE__ */ __name(() => c3(e2 + 1), "onClick"), children: a4 }, a4))] }), f2.isError ? (0, d.jsx)("p", { className: "text-center text-sm text-faint py-8", children: "\u63A8\u8350\u5185\u5BB9\u52A0\u8F7D\u5931\u8D25\uFF0C\u53EF\u7A0D\u540E\u91CD\u8BD5\u6216\u5728\u8BBE\u7F6E\u4E2D\u5173\u95ED" }) : f2.isLoading ? (0, d.jsx)(x, {}) : (0, d.jsx)("div", { className: "grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2.5", children: h2.map((b4) => (0, d.jsx)(o, { item: b4, onClick: /* @__PURE__ */ __name(() => a3(b4.title), "onClick") }, b4.id)) })] });
           }
           __name(u, "u");
-          let v = [{ id: "douban_movie_weekly", label: "\u7535\u5F71\u5468\u699C" }, { id: "douban_tv_chinese", label: "\u56FD\u4EA7\u5267\u5468\u699C" }, { id: "douban_tv_global", label: "\u6D77\u5916\u5267\u5468\u699C" }, { id: "douban_show_chinese", label: "\u56FD\u5185\u7EFC\u827A" }, { id: "douban_show_global", label: "\u6D77\u5916\u7EFC\u827A" }, { id: "baidu_teleplay", label: "\u767E\u5EA6\u70ED\u64AD\u5267" }];
+          let v = [{ id: "lz_latest", label: "最新更新" }, { id: "lz_movie", label: "动作电影" }, { id: "lz_guochantv", label: "国产剧" }, { id: "lz_oumeitv", label: "欧美剧" }, { id: "lz_anime", label: "国产动漫" }, { id: "lz_zongyi", label: "大陆综艺" }];
           function w({ onPick: a3 }) {
             let [b3, c3] = (0, e.useState)(v[0].id), f2 = (0, g.I)({ queryKey: ["hot-list", b3], queryFn: /* @__PURE__ */ __name(({ signal: a4 }) => i.FH.hotList(b3, a4), "queryFn") }), h2 = f2.data?.items ?? [];
             return (0, d.jsxs)("section", { "aria-label": "\u5F71\u89C6\u699C\u5355\u63A8\u8350", children: [(0, d.jsx)("div", { className: "flex flex-wrap gap-1.5 mb-4", children: v.map((a4) => (0, d.jsx)(y, { active: b3 === a4.id, onClick: /* @__PURE__ */ __name(() => c3(a4.id), "onClick"), children: a4.label }, a4.id)) }), f2.isError ? (0, d.jsx)("p", { className: "text-center text-sm text-faint py-8", children: "\u63A8\u8350\u5185\u5BB9\u52A0\u8F7D\u5931\u8D25\uFF0C\u53EF\u7A0D\u540E\u91CD\u8BD5\u6216\u5728\u8BBE\u7F6E\u4E2D\u5173\u95ED" }) : f2.isLoading ? (0, d.jsx)(x, {}) : (0, d.jsx)("div", { className: "grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2.5", children: h2.map((b4) => (0, d.jsx)(o, { item: b4, onClick: /* @__PURE__ */ __name(() => a3(b4.title), "onClick") }, b4.id)) })] });
