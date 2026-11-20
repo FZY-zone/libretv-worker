@@ -5,19 +5,31 @@
 
 > English guide: [README.en.md](README.en.md)
 
-> **⚠️ 文件较大（8.66 MB），GitHub 无法在线预览代码（会提示 “we can't show files that are this big”），这是正常的。**
+> **⚠️ 文件较大（9.5 MB），GitHub 无法在线预览代码（会提示 “we can't show files that are this big”），这是正常的。**
 > 获取代码用下面任一方式：
 > - **方式一（最简单）**：打开 `worker.js` 页面 → 点右上角 **下载（⬇）图标** 保存文件 → 用记事本/编辑器打开它 → `Ctrl+A`、`Ctrl+C` 全选复制。
 > - **方式二（Raw）**：点 **Raw** 按钮 → 浏览器打开原始代码 → `Ctrl+A`、`Ctrl+C`（或右键“另存为”）。
 
-> 本项目基于 [LibreTV](https://github.com/LibreSpark/LibreTV)（Next.js 重构版，**AGPL-3.0**），
+> 本项目基于 [LibreTV](https://github.com/LibreSpark/LibreTV)（Next.js 重构版，**AGPL-3.0**）**v2.24.0**，
 > 原作者 LibreSpark。本仓库只是将其打包为“单文件可粘贴”形态，协议仍为 AGPL-3.0。
+
+## 版本
+
+当前 `worker.js` 构建自上游 **LibreTV v2.24.0**（2026-11-18 发布）。上一版构建自 v2.16.12，本次同步带来的主要变化：
+
+- **画质探测**：自动识别线路清晰度并在卡片/播放器上显示画质角标，可一键切到更高清线路
+- **跳过片头片尾**：支持手动标记与自动跳过
+- **音量增强**：播放器音量可放大到 100% 以上
+- **下载**：新增下载设置项，M3U8 下载链路增强
+- **首页推荐**：推荐流改为无限滚动分页，加载更顺滑
+- **直播**：新增直播流探测与自建内网源支持（`LIVE_ALLOW_PRIVATE=1` 时放行私网地址）
+- **其它**：影片备注解析、触屏手势、迷你进度条、订阅/TVBOX 配置解析增强、CI 与 Release 工作流
 
 ## 体积
 
-- `worker.js` 原始约 8.66 MB，**gzip 约 2.24 MB**
+- `worker.js` 原始约 9.5 MB，**gzip 约 2.46 MB**
 - 低于 Cloudflare **免费计划 Worker 的 3 MB（gzip）上限**，免费账号即可部署
-- 已把 61 个静态资源（JS/CSS/图标等）内联进 worker，因此不依赖任何外部文件
+- 已把 65 个静态资源（JS/CSS/图标等）内联进 worker，因此不依赖任何外部文件
 
 ## 部署步骤（约 1 分钟，全程网页操作）
 

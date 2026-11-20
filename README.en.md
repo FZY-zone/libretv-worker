@@ -3,21 +3,33 @@
 A **self-contained `worker.js`**: no installation, no build step, no static asset upload.
 Copy the entire `worker.js`, paste it into the Cloudflare Worker online editor, and it runs.
 
-> This project is based on [LibreTV](https://github.com/LibreSpark/LibreTV) (Next.js rewrite, **AGPL-3.0**),
+> This project is based on [LibreTV](https://github.com/LibreSpark/LibreTV) (Next.js rewrite, **AGPL-3.0**) **v2.24.0**,
 > originally by LibreSpark. This repository only repackages it into a single paste-ready file; the license remains AGPL-3.0.
 >
 > 中文说明见 [README.md](README.md).
 
-> **⚠️ This file is large (8.66 MB), so GitHub cannot preview it online (it shows "we can't show files that are this big"). This is normal.**
+> **⚠️ This file is large (9.5 MB), so GitHub cannot preview it online (it shows "we can't show files that are this big"). This is normal.**
 > Get the code in either way:
 > - **Easiest**: open the `worker.js` page → click the **download (⬇) icon** (top right) to save it → open in any text editor → `Ctrl+A`, `Ctrl+C`.
 > - **Raw**: click the **Raw** button → the raw code opens in the browser → `Ctrl+A`, `Ctrl+C` (or right-click "Save as").
 
+## Version
+
+The current `worker.js` is built from upstream **LibreTV v2.24.0** (released 2026-11-18). The previous build was v2.16.12; this sync brings:
+
+- **Quality probing**: line quality detected automatically and shown as a badge, with one-tap switching to a higher-quality line
+- **Intro/outro skipping**: manual marks plus automatic skipping
+- **Volume boost**: player volume can exceed 100%
+- **Downloads**: new download settings, stronger M3U8 download pipeline
+- **Homepage recommendations**: infinite-scroll paging
+- **Live**: stream probing and private/LAN source support (`LIVE_ALLOW_PRIVATE=1`)
+- **Also**: remark parsing, touch gestures, mini progress bar, subscription/TVBOX parsing improvements, CI and release workflows
+
 ## Size
 
-- Raw `worker.js`: ~8.66 MB, **gzip ~2.24 MB**
+- Raw `worker.js`: ~9.5 MB, **gzip ~2.46 MB**
 - Below the Cloudflare **free plan Worker limit of 3 MB (gzip)** — deployable on a free account
-- 61 static assets (JS/CSS/icons, etc.) are inlined, so no external files are needed
+- 65 static assets (JS/CSS/icons, etc.) are inlined, so no external files are needed
 
 ## Deploy (~1 minute, all in the browser)
 
